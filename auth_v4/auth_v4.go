@@ -59,7 +59,7 @@ var Client *http.Client
 
 // Initialize package-scoped client.
 func init() {
-	tr := &http.Transport{ResponseHeaderTimeout: time.Duration(20) * time.Second}
+	tr := &http.Transport{Proxy: http.ProxyFromEnvironment, ResponseHeaderTimeout: time.Duration(20) * time.Second}
 	Client = &http.Client{Transport:tr}
 }
 
